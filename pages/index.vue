@@ -3,7 +3,7 @@
     <nav class="flex">
       <color-mode-button></color-mode-button>
       <UButtonGroup>
-        <UButton @click="start">Start</UButton>
+        <UButton @click="start" :disabled="loadingAny">Start</UButton>
         <UButton color="error" @click="pause">Pause</UButton>
       </UButtonGroup>
     </nav>
@@ -191,7 +191,7 @@ const measure = async ()=>{
 }
 
 const start = async ()=>{
-  if(loadingAny) return
+  if(loadingAny.value) return
   await measure()
   await turnRight()
   await turnRight()
