@@ -182,6 +182,10 @@ const applyInstruction = (instruction) => {
           roboterPosition.value.x -= units
           break
       }
+      break
+    case 'turn':
+      roboterAngle.value += instruction.angle
+      break
   }
 }
 
