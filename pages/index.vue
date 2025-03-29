@@ -82,1713 +82,1714 @@ const dataMap = ref(new Map())
 
 const initializeTestData = () => {
   const rawBuffer = [
-    {"idx": 0, "type": 2, "dir": 422, "dist": 169},
-    {
-      "idx": 1,
+    {"idx": 1, "type": 2, "dir": 0, "dist": 101}, {"idx": 2, "type": 2, "dir": 7, "dist": 46}, {
+      "idx": 3,
       "type": 2,
-      "dir": 423,
-      "dist": 163
-    }, {"idx": 2, "type": 2, "dir": 425, "dist": 116}, {"idx": 3, "type": 2, "dir": 427, "dist": 122}, {
-      "idx": 4,
-      "type": 2,
-      "dir": 429,
-      "dist": 120
-    }, {"idx": 5, "type": 2, "dir": 431, "dist": 120}, {"idx": 6, "type": 2, "dir": 432, "dist": 119}, {
-      "idx": 7,
-      "type": 2,
-      "dir": 434,
-      "dist": 116
-    }, {"idx": 8, "type": 2, "dir": 436, "dist": 116}, {"idx": 9, "type": 2, "dir": 438, "dist": 115}, {
-      "idx": 10,
-      "type": 2,
-      "dir": 440,
-      "dist": 116
-    }, {"idx": 11, "type": 2, "dir": 441, "dist": 114}, {"idx": 12, "type": 2, "dir": 443, "dist": 115}, {
-      "idx": 13,
-      "type": 2,
-      "dir": 445,
-      "dist": 115
-    }, {"idx": 14, "type": 2, "dir": 447, "dist": 117}, {"idx": 15, "type": 2, "dir": 449, "dist": 122}, {
-      "idx": 16,
-      "type": 2,
-      "dir": 450,
-      "dist": 122
-    }, {"idx": 17, "type": 2, "dir": 452, "dist": 121}, {"idx": 18, "type": 2, "dir": 454, "dist": 121}, {
-      "idx": 19,
-      "type": 2,
-      "dir": 456,
-      "dist": 120
-    }, {"idx": 20, "type": 2, "dir": 458, "dist": 121}, {"idx": 21, "type": 2, "dir": 459, "dist": 122}, {
-      "idx": 22,
-      "type": 2,
-      "dir": 461,
-      "dist": 121
-    }, {"idx": 23, "type": 2, "dir": 463, "dist": 121}, {"idx": 24, "type": 2, "dir": 465, "dist": 123}, {
-      "idx": 25,
-      "type": 2,
-      "dir": 467,
-      "dist": 131
-    }, {"idx": 26, "type": 2, "dir": 468, "dist": 132}, {"idx": 27, "type": 2, "dir": 470, "dist": 133}, {
-      "idx": 28,
-      "type": 2,
-      "dir": 472,
-      "dist": 132
-    }, {"idx": 29, "type": 2, "dir": 474, "dist": 133}, {"idx": 30, "type": 2, "dir": 476, "dist": 134}, {
-      "idx": 31,
-      "type": 2,
-      "dir": 477,
-      "dist": 135
-    }, {"idx": 32, "type": 2, "dir": 479, "dist": 135}, {"idx": 33, "type": 2, "dir": 481, "dist": 136}, {
-      "idx": 34,
-      "type": 2,
-      "dir": 483,
-      "dist": 164
-    }, {"idx": 35, "type": 2, "dir": 485, "dist": 164}, {"idx": 36, "type": 2, "dir": 486, "dist": 164}, {
-      "idx": 37,
-      "type": 2,
-      "dir": 488,
-      "dist": 163
-    }, {"idx": 38, "type": 2, "dir": 490, "dist": 163}, {"idx": 39, "type": 2, "dir": 492, "dist": 163}, {
-      "idx": 40,
-      "type": 2,
-      "dir": 494,
-      "dist": 163
-    }, {"idx": 41, "type": 2, "dir": 495, "dist": 163}, {"idx": 42, "type": 2, "dir": 497, "dist": 164}, {
-      "idx": 43,
-      "type": 2,
-      "dir": 499,
-      "dist": 164
-    }, {"idx": 44, "type": 2, "dir": 501, "dist": 164}, {"idx": 45, "type": 2, "dir": 503, "dist": 163}, {
-      "idx": 46,
-      "type": 2,
-      "dir": 504,
-      "dist": 164
-    }, {"idx": 47, "type": 2, "dir": 506, "dist": 163}, {"idx": 48, "type": 2, "dir": 508, "dist": 163}, {
-      "idx": 49,
-      "type": 2,
-      "dir": 510,
-      "dist": 164
-    }, {"idx": 50, "type": 2, "dir": 0, "dist": 164}, {"idx": 51, "type": 2, "dir": 1, "dist": 163}, {
-      "idx": 52,
-      "type": 2,
-      "dir": 3,
-      "dist": 164
-    }, {"idx": 53, "type": 2, "dir": 5, "dist": 164}, {"idx": 54, "type": 2, "dir": 7, "dist": 163}, {
-      "idx": 55,
-      "type": 2,
-      "dir": 9,
-      "dist": 163
-    }, {"idx": 56, "type": 2, "dir": 10, "dist": 163}, {"idx": 57, "type": 2, "dir": 12, "dist": 164}, {
-      "idx": 58,
-      "type": 2,
-      "dir": 14,
-      "dist": 163
-    }, {"idx": 59, "type": 2, "dir": 16, "dist": 164}, {"idx": 60, "type": 2, "dir": 18, "dist": 163}, {
-      "idx": 61,
-      "type": 2,
-      "dir": 19,
-      "dist": 165
-    }, {"idx": 62, "type": 2, "dir": 21, "dist": 163}, {"idx": 63, "type": 2, "dir": 23, "dist": 164}, {
-      "idx": 64,
-      "type": 2,
-      "dir": 25,
-      "dist": 164
-    }, {"idx": 65, "type": 2, "dir": 27, "dist": 165}, {"idx": 66, "type": 2, "dir": 28, "dist": 165}, {
-      "idx": 67,
-      "type": 2,
-      "dir": 30,
-      "dist": 165
-    }, {"idx": 68, "type": 2, "dir": 32, "dist": 166}, {"idx": 69, "type": 2, "dir": 34, "dist": 165}, {
-      "idx": 70,
-      "type": 2,
-      "dir": 36,
-      "dist": 166
-    }, {"idx": 71, "type": 2, "dir": 37, "dist": 166}, {"idx": 72, "type": 2, "dir": 39, "dist": 167}, {
-      "idx": 73,
-      "type": 2,
-      "dir": 41,
-      "dist": 255
-    }, {"idx": 74, "type": 2, "dir": 43, "dist": 255}, {"idx": 75, "type": 2, "dir": 45, "dist": 255}, {
-      "idx": 76,
-      "type": 2,
-      "dir": 46,
-      "dist": 255
-    }, {"idx": 77, "type": 2, "dir": 48, "dist": 255}, {"idx": 78, "type": 2, "dir": 50, "dist": 255}, {
-      "idx": 79,
-      "type": 2,
-      "dir": 52,
-      "dist": 70
-    }, {"idx": 80, "type": 2, "dir": 54, "dist": 255}, {"idx": 81, "type": 2, "dir": 55, "dist": 68}, {
-      "idx": 82,
-      "type": 2,
-      "dir": 57,
-      "dist": 255
-    }, {"idx": 83, "type": 2, "dir": 59, "dist": 63}, {"idx": 84, "type": 2, "dir": 61, "dist": 68}, {
-      "idx": 85,
-      "type": 2,
-      "dir": 63,
-      "dist": 64
-    }, {"idx": 86, "type": 2, "dir": 64, "dist": 64}, {"idx": 87, "type": 2, "dir": 66, "dist": 62}, {
-      "idx": 88,
-      "type": 2,
-      "dir": 68,
-      "dist": 61
-    }, {"idx": 89, "type": 2, "dir": 70, "dist": 61}, {"idx": 90, "type": 2, "dir": 72, "dist": 60}, {
-      "idx": 91,
-      "type": 2,
-      "dir": 73,
-      "dist": 60
-    }, {"idx": 92, "type": 2, "dir": 75, "dist": 59}, {"idx": 93, "type": 2, "dir": 77, "dist": 58}, {
-      "idx": 94,
-      "type": 2,
-      "dir": 79,
-      "dist": 58
-    }, {"idx": 95, "type": 2, "dir": 81, "dist": 58}, {"idx": 96, "type": 2, "dir": 82, "dist": 58}, {
-      "idx": 97,
-      "type": 2,
-      "dir": 84,
-      "dist": 58
-    }, {"idx": 98, "type": 2, "dir": 86, "dist": 58}, {"idx": 99, "type": 2, "dir": 88, "dist": 58}, {
-      "idx": 100,
-      "type": 0,
-      "dir": 1,
-      "dist": 97
-    }, {"idx": 101, "type": 2, "dir": 422, "dist": 162}, {"idx": 102, "type": 2, "dir": 423, "dist": 68}, {
-      "idx": 103,
-      "type": 2,
-      "dir": 425,
-      "dist": 100
-    }, {"idx": 104, "type": 2, "dir": 427, "dist": 100}, {"idx": 105, "type": 2, "dir": 429, "dist": 100}, {
-      "idx": 106,
-      "type": 2,
-      "dir": 431,
-      "dist": 99
-    }, {"idx": 107, "type": 2, "dir": 432, "dist": 100}, {"idx": 108, "type": 2, "dir": 434, "dist": 98}, {
-      "idx": 109,
-      "type": 2,
-      "dir": 436,
-      "dist": 100
-    }, {"idx": 110, "type": 2, "dir": 438, "dist": 100}, {"idx": 111, "type": 2, "dir": 440, "dist": 102}, {
-      "idx": 112,
-      "type": 2,
-      "dir": 441,
-      "dist": 106
-    }, {"idx": 113, "type": 2, "dir": 443, "dist": 103}, {"idx": 114, "type": 2, "dir": 445, "dist": 104}, {
-      "idx": 115,
-      "type": 2,
-      "dir": 447,
-      "dist": 103
-    }, {"idx": 116, "type": 2, "dir": 449, "dist": 103}, {"idx": 117, "type": 2, "dir": 450, "dist": 105}, {
-      "idx": 118,
-      "type": 2,
-      "dir": 452,
-      "dist": 102
-    }, {"idx": 119, "type": 2, "dir": 454, "dist": 106}, {"idx": 120, "type": 2, "dir": 456, "dist": 105}, {
-      "idx": 121,
-      "type": 2,
-      "dir": 458,
-      "dist": 105
-    }, {"idx": 122, "type": 2, "dir": 459, "dist": 105}, {"idx": 123, "type": 2, "dir": 461, "dist": 105}, {
-      "idx": 124,
-      "type": 2,
-      "dir": 463,
-      "dist": 105
-    }, {"idx": 125, "type": 2, "dir": 465, "dist": 105}, {"idx": 126, "type": 2, "dir": 467, "dist": 105}, {
-      "idx": 127,
-      "type": 2,
-      "dir": 468,
-      "dist": 105
-    }, {"idx": 128, "type": 2, "dir": 470, "dist": 105}, {"idx": 129, "type": 2, "dir": 472, "dist": 105}, {
-      "idx": 130,
-      "type": 2,
-      "dir": 474,
-      "dist": 71
-    }, {"idx": 131, "type": 2, "dir": 476, "dist": 69}, {"idx": 132, "type": 2, "dir": 477, "dist": 70}, {
-      "idx": 133,
-      "type": 2,
-      "dir": 479,
-      "dist": 68
-    }, {"idx": 134, "type": 2, "dir": 481, "dist": 69}, {"idx": 135, "type": 2, "dir": 483, "dist": 69}, {
-      "idx": 136,
-      "type": 2,
-      "dir": 485,
-      "dist": 68
-    }, {"idx": 137, "type": 2, "dir": 486, "dist": 68}, {"idx": 138, "type": 2, "dir": 488, "dist": 68}, {
-      "idx": 139,
-      "type": 2,
-      "dir": 490,
-      "dist": 67
-    }, {"idx": 140, "type": 2, "dir": 492, "dist": 68}, {"idx": 141, "type": 2, "dir": 494, "dist": 67}, {
-      "idx": 142,
-      "type": 2,
-      "dir": 495,
-      "dist": 67
-    }, {"idx": 143, "type": 2, "dir": 497, "dist": 68}, {"idx": 144, "type": 2, "dir": 499, "dist": 67}, {
-      "idx": 145,
-      "type": 2,
-      "dir": 501,
-      "dist": 67
-    }, {"idx": 146, "type": 2, "dir": 503, "dist": 67}, {"idx": 147, "type": 2, "dir": 504, "dist": 67}, {
-      "idx": 148,
-      "type": 2,
-      "dir": 506,
-      "dist": 67
-    }, {"idx": 149, "type": 2, "dir": 508, "dist": 67}, {"idx": 150, "type": 2, "dir": 510, "dist": 67}, {
-      "idx": 151,
-      "type": 2,
-      "dir": 0,
-      "dist": 67
-    }, {"idx": 152, "type": 2, "dir": 1, "dist": 67}, {"idx": 153, "type": 2, "dir": 3, "dist": 67}, {
-      "idx": 154,
-      "type": 2,
-      "dir": 5,
-      "dist": 67
-    }, {"idx": 155, "type": 2, "dir": 7, "dist": 67}, {"idx": 156, "type": 2, "dir": 9, "dist": 67}, {
-      "idx": 157,
-      "type": 2,
-      "dir": 10,
-      "dist": 67
-    }, {"idx": 158, "type": 2, "dir": 12, "dist": 68}, {"idx": 159, "type": 2, "dir": 14, "dist": 68}, {
-      "idx": 160,
-      "type": 2,
-      "dir": 16,
-      "dist": 67
-    }, {"idx": 161, "type": 2, "dir": 18, "dist": 68}, {"idx": 162, "type": 2, "dir": 19, "dist": 68}, {
-      "idx": 163,
-      "type": 2,
-      "dir": 21,
-      "dist": 68
-    }, {"idx": 164, "type": 2, "dir": 23, "dist": 68}, {"idx": 165, "type": 2, "dir": 25, "dist": 68}, {
-      "idx": 166,
-      "type": 2,
-      "dir": 27,
-      "dist": 69
-    }, {"idx": 167, "type": 2, "dir": 28, "dist": 68}, {"idx": 168, "type": 2, "dir": 30, "dist": 69}, {
-      "idx": 169,
-      "type": 2,
-      "dir": 32,
-      "dist": 70
-    }, {"idx": 170, "type": 2, "dir": 34, "dist": 69}, {"idx": 171, "type": 2, "dir": 36, "dist": 71}, {
-      "idx": 172,
+      "dir": 15,
+      "dist": 74
+    }, {"idx": 4, "type": 2, "dir": 22, "dist": 71}, {"idx": 5, "type": 2, "dir": 30, "dist": 68}, {
+      "idx": 6,
       "type": 2,
       "dir": 37,
       "dist": 70
-    }, {"idx": 173, "type": 2, "dir": 39, "dist": 162}, {"idx": 174, "type": 2, "dir": 41, "dist": 162}, {
-      "idx": 175,
+    }, {"idx": 7, "type": 2, "dir": 45, "dist": 48}, {"idx": 8, "type": 2, "dir": 52, "dist": 47}, {
+      "idx": 9,
       "type": 2,
-      "dir": 43,
-      "dist": 161
-    }, {"idx": 176, "type": 2, "dir": 45, "dist": 161}, {"idx": 177, "type": 2, "dir": 46, "dist": 161}, {
-      "idx": 178,
+      "dir": 60,
+      "dist": 47
+    }, {"idx": 10, "type": 2, "dir": 67, "dist": 47}, {"idx": 11, "type": 2, "dir": 75, "dist": 48}, {
+      "idx": 12,
       "type": 2,
-      "dir": 48,
-      "dist": 161
-    }, {"idx": 179, "type": 2, "dir": 50, "dist": 161}, {"idx": 180, "type": 2, "dir": 52, "dist": 161}, {
-      "idx": 181,
+      "dir": 82,
+      "dist": 49
+    }, {"idx": 13, "type": 2, "dir": 90, "dist": 98}, {"idx": 14, "type": 2, "dir": 97, "dist": 99}, {
+      "idx": 15,
       "type": 2,
-      "dir": 54,
-      "dist": 161
-    }, {"idx": 182, "type": 2, "dir": 55, "dist": 161}, {"idx": 183, "type": 2, "dir": 57, "dist": 115}, {
-      "idx": 184,
+      "dir": 105,
+      "dist": 121
+    }, {"idx": 16, "type": 2, "dir": 112, "dist": 141}, {"idx": 17, "type": 2, "dir": 120, "dist": 141}, {
+      "idx": 18,
       "type": 2,
-      "dir": 59,
-      "dist": 114
-    }, {"idx": 185, "type": 2, "dir": 61, "dist": 112}, {"idx": 186, "type": 2, "dir": 63, "dist": 114}, {
-      "idx": 187,
+      "dir": 127,
+      "dist": 99
+    }, {"idx": 19, "type": 2, "dir": 135, "dist": 101}, {"idx": 20, "type": 2, "dir": 142, "dist": 101}, {
+      "idx": 21,
       "type": 2,
-      "dir": 64,
-      "dist": 113
-    }, {"idx": 188, "type": 2, "dir": 66, "dist": 111}, {"idx": 189, "type": 2, "dir": 68, "dist": 111}, {
-      "idx": 190,
+      "dir": 150,
+      "dist": 72
+    }, {"idx": 22, "type": 2, "dir": 157, "dist": 64}, {"idx": 23, "type": 2, "dir": 165, "dist": 53}, {
+      "idx": 24,
       "type": 2,
-      "dir": 70,
-      "dist": 111
-    }, {"idx": 191, "type": 2, "dir": 72, "dist": 112}, {"idx": 192, "type": 2, "dir": 73, "dist": 111}, {
-      "idx": 193,
+      "dir": 172,
+      "dist": 51
+    }, {"idx": 25, "type": 0, "dir": 0, "dist": 97}, {"idx": 26, "type": 2, "dir": 0, "dist": 76}, {
+      "idx": 27,
+      "type": 2,
+      "dir": 7,
+      "dist": 43
+    }, {"idx": 28, "type": 2, "dir": 15, "dist": 31}, {"idx": 29, "type": 2, "dir": 22, "dist": 31}, {
+      "idx": 30,
+      "type": 2,
+      "dir": 30,
+      "dist": 32
+    }, {"idx": 31, "type": 2, "dir": 37, "dist": 42}, {"idx": 32, "type": 2, "dir": 45, "dist": 42}, {
+      "idx": 33,
+      "type": 2,
+      "dir": 52,
+      "dist": 42
+    }, {"idx": 34, "type": 2, "dir": 60, "dist": 43}, {"idx": 35, "type": 2, "dir": 67, "dist": 45}, {
+      "idx": 36,
       "type": 2,
       "dir": 75,
-      "dist": 110
-    }, {"idx": 194, "type": 2, "dir": 77, "dist": 111}, {"idx": 195, "type": 2, "dir": 79, "dist": 111}, {
-      "idx": 196,
+      "dist": 99
+    }, {"idx": 37, "type": 2, "dir": 82, "dist": 106}, {"idx": 38, "type": 2, "dir": 90, "dist": 125}, {
+      "idx": 39,
       "type": 2,
-      "dir": 81,
-      "dist": 110
-    }, {"idx": 197, "type": 2, "dir": 82, "dist": 111}, {"idx": 198, "type": 2, "dir": 84, "dist": 111}, {
-      "idx": 199,
+      "dir": 97,
+      "dist": 123
+    }, {"idx": 40, "type": 2, "dir": 105, "dist": 123}, {"idx": 41, "type": 2, "dir": 112, "dist": 122}, {
+      "idx": 42,
       "type": 2,
-      "dir": 86,
+      "dir": 120,
+      "dist": 119
+    }, {"idx": 43, "type": 2, "dir": 127, "dist": 76}, {"idx": 44, "type": 2, "dir": 135, "dist": 73}, {
+      "idx": 45,
+      "type": 2,
+      "dir": 142,
+      "dist": 72
+    }, {"idx": 46, "type": 2, "dir": 150, "dist": 69}, {"idx": 47, "type": 2, "dir": 157, "dist": 64}, {
+      "idx": 48,
+      "type": 2,
+      "dir": 165,
+      "dist": 61
+    }, {"idx": 49, "type": 2, "dir": 172, "dist": 61}, {"idx": 50, "type": 0, "dir": 0, "dist": 97}, {
+      "idx": 51,
+      "type": 2,
+      "dir": 0,
+      "dist": 190
+    }, {"idx": 52, "type": 2, "dir": 7, "dist": 127}, {"idx": 53, "type": 2, "dir": 15, "dist": 26}, {
+      "idx": 54,
+      "type": 2,
+      "dir": 22,
+      "dist": 28
+    }, {"idx": 55, "type": 2, "dir": 30, "dist": 73}, {"idx": 56, "type": 2, "dir": 37, "dist": 67}, {
+      "idx": 57,
+      "type": 2,
+      "dir": 45,
+      "dist": 129
+    }, {"idx": 58, "type": 2, "dir": 52, "dist": 127}, {"idx": 59, "type": 2, "dir": 60, "dist": 127}, {
+      "idx": 60,
+      "type": 2,
+      "dir": 67,
+      "dist": 127
+    }, {"idx": 61, "type": 2, "dir": 75, "dist": 127}, {"idx": 62, "type": 2, "dir": 82, "dist": 127}, {
+      "idx": 63,
+      "type": 2,
+      "dir": 90,
+      "dist": 131
+    }, {"idx": 64, "type": 2, "dir": 97, "dist": 138}, {"idx": 65, "type": 2, "dir": 105, "dist": 141}, {
+      "idx": 66,
+      "type": 2,
+      "dir": 112,
+      "dist": 145
+    }, {"idx": 67, "type": 2, "dir": 120, "dist": 196}, {"idx": 68, "type": 2, "dir": 127, "dist": 187}, {
+      "idx": 69,
+      "type": 2,
+      "dir": 135,
+      "dist": 54
+    }, {"idx": 70, "type": 2, "dir": 142, "dist": 52}, {"idx": 71, "type": 2, "dir": 150, "dist": 53}, {
+      "idx": 72,
+      "type": 2,
+      "dir": 157,
       "dist": 53
-    }, {"idx": 200, "type": 2, "dir": 88, "dist": 52}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 73, "type": 2, "dir": 165, "dist": 54}, {"idx": 74, "type": 2, "dir": 172, "dist": 59}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {
-      "idx": -1,
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
       "type": 0,
       "dir": 0,
       "dist": 0
-    }, {"idx": -1, "type": 0, "dir": 0, "dist": 0}, {"idx": -1, "type": 0, "dir": 0, "dist": 0}]
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {"idx": 0, "type": 0, "dir": 0, "dist": 0}, {
+      "idx": 0,
+      "type": 0,
+      "dir": 0,
+      "dist": 0
+    }, {"idx": 0, "type": 0, "dir": 0, "dist": 0}
+  ]
+
   const mapLikeBuffer = rawBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
   dataMap.value = new Map(mapLikeBuffer)
 }
@@ -1802,7 +1803,7 @@ const instructions = computed(() => {
         return {
           idx,
           type: 'measure',
-          angle: instr.dir % 360,
+          angle: (instr.dir % 360) - 90,
           distance: instr.dist
         }
       case 1:
@@ -1904,7 +1905,6 @@ const applyInstruction = (instruction) => {
       markCellsInArc(roboterPosition.value, roboterAngle.value, instruction.angle, meterToUnit(instruction.distance / 100), 15)
       break
     case 'move':
-      console.log(instruction)
       const units = meterToUnit(instruction.distance / 100) / GRID_CELL_SIZE
       switch (roboterAngle.value % 360) {
         case 90:
