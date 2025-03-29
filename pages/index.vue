@@ -1,6 +1,12 @@
 <template>
   <main class="flex justify-center items-center flex-col gap-3">
-    <color-mode-button></color-mode-button>
+    <nav class="flex">
+      <color-mode-button></color-mode-button>
+      <UButtonGroup>
+        <UButton @click="start">Start</UButton>
+        <UButton color="error" @click="pause">Pause</UButton>
+      </UButtonGroup>
+    </nav>
     <UCard variant="subtle" class="flex">
       <robo-widget
           :instructions="instructions"
@@ -23,6 +29,7 @@
       </UButtonGroup>
       <USeparator />
       <h2>Display Instructions</h2>
+      Manual Mode<USwitch v-model="manualMode"></USwitch>
       <UButtonGroup>
         <UButton @click="sliceIndex++">Next</UButton>
         <UButton @click="sliceIndex+=10">Next 10</UButton>
@@ -53,6 +60,8 @@ const $api = $fetch.create({
     'accept': 'application/json',
   }
 })
+
+const manualMode = ref(false)
 
 const inputWidthMeter = shallowRef(10)
 const inputHeightMeter = shallowRef(10)
@@ -112,7 +121,12 @@ const initializeTestData = () => {
   }
 }
 
-const sliceIndex = shallowRef(0)
+const _sliceIndex = shallowRef(0)
+
+const sliceIndex = computed({
+  get: () => manualMode.value ? _sliceIndex.value : dataMap.value.size,
+  set: (val) => _sliceIndex.value = val
+})
 
 const instructions = computed(() => {
   return Array.from(dataMap.value).slice(0, sliceIndex.value).map(([idx, instr]) => {
@@ -174,5 +188,14 @@ const measure = async ()=>{
   isMeasuring.value = true
   await $api('/scan100')
   isMeasuring.value = false
+}
+
+const start = async ()=>{
+  if(loadingAny) return
+  await measure()
+  await turnRight()
+  await turnRight()
+  await measure()
+  await fetchData()
 }
 </script>
