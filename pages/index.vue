@@ -4,15 +4,15 @@
       <color-mode-button></color-mode-button>
       <UButtonGroup>
         <UButton @click="start" :disabled="loadingAny">Start</UButton>
-        <UButton color="error" @click="pause">Pause</UButton>
+<!--        <UButton color="error" @click="pause">Pause</UButton>-->
       </UButtonGroup>
     </nav>
     <UCard variant="subtle" class="flex">
       <robo-widget
           :instructions="instructions"
           :grid="grid"
-          :roboter-angle="roboterAngle"
-          :roboter-position="roboterPosition"
+          v-model:roboter-angle="roboterAngle"
+          v-model:roboter-position="roboterPosition"
       ></robo-widget>
     </UCard>
     <UCard>
@@ -51,6 +51,9 @@
         <UButton :disabled="loadingAny" color="info" :loading="isMeasuring" @click="measure">Measuring</UButton>
         <UButton @click="decideNextMove">Next Move?</UButton>
       </UButtonGroup>
+      <USeparator></USeparator>
+      Pos: {{roboterPosition.x}} / {{roboterPosition.y}}<br>
+      Angle: {{roboterAngle}}<br>
     </UCard>
   </main>
 </template>
@@ -133,7 +136,7 @@ const fetchData = async () => {
   loadingData.value = false
 
   if (!data) return
-  const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
+  const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== 0).map(({idx, ...rest}) => [idx, rest])
   for (const [idx, instr] of mapLikeBuffer) {
     if (dataMap.value.has(idx)) continue
     dataMap.value.set(idx, instr)
@@ -142,7 +145,7 @@ const fetchData = async () => {
 
 const initializeTestData = () => {
   const rawBuffer = testData.ringBuffer
-  const mapLikeBuffer = rawBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
+  const mapLikeBuffer = rawBuffer.filter(b => b.idx !== 0).map(({idx, ...rest}) => [idx, rest])
   for (const [idx, instr] of mapLikeBuffer) {
     if (dataMap.value.has(idx)) continue
     dataMap.value.set(idx, instr)
@@ -151,7 +154,7 @@ const initializeTestData = () => {
 
 const initializeTestData2 = () => {
   const rawBuffer = testData2.ringBuffer
-  const mapLikeBuffer = rawBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
+  const mapLikeBuffer = rawBuffer.filter(b => b.idx !== 0).map(({idx, ...rest}) => [idx, rest])
   for (const [idx, instr] of mapLikeBuffer) {
     if (dataMap.value.has(idx)) continue
     dataMap.value.set(idx, instr)
@@ -194,6 +197,14 @@ const instructions = computed(() => {
         }
     }
   })
+})
+
+const moveInstr = computed(()=>{
+  return instructions.value.filter(i=>i.type === 'move')
+})
+
+const turnInstr = computed(()=>{
+  return instructions.value.filter(i=>i.type === 'turn')
 })
 
 const moveForward = async (cm: number) => {

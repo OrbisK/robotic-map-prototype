@@ -14,10 +14,13 @@ export const GRID_CELL_SIZE = meterToUnit(0.1)
 export const angleToDirection = (angle) => {
     switch (angle % 360) {
         case 90:
+        case -270:
             return "top"
         case 0:
+        case 360:
             return "right"
         case 270:
+        case -90:
             return "bottom"
         case 180:
             return "left"
