@@ -27,34 +27,45 @@ const inputHeight = computed(() => meterToUnit(inputHeightMeter.value))
 
 const dataMap = ref(new Map())
 
-const loading = shallowRef(false)
+const loadingData = shallowRef(false)
 
-const initializeTestDataApi = async () => {
-  loading.value = true
-  const response = await $fetch('http://192.168.4.1/data', {method: "GET", responseType: 'stream',})
-  // Create a new ReadableStream from the response with TextDecoderStream to get the data as text
-  const reader = response.pipeThrough(new TextDecoderStream()).getReader()
+const fetchData = async () => {
+  loadingData.value = true
+  let data = undefined
+  try {
+    const response = await $fetch('http://192.168.4.1/data', {method: "GET", responseType: 'stream',})
+    // Create a new ReadableStream from the response with TextDecoderStream to get the data as text
+    const reader = response.pipeThrough(new TextDecoderStream()).getReader()
 
-  let result = ''
-  // Read the chunk of data as we get it
-  while (true) {
-    const {value, done} = await reader.read()
+    let result = ''
+    // Read the chunk of data as we get it
+    while (true) {
+      const {value, done} = await reader.read()
 
-    if (done)
-      break
+      if (done)
+        break
 
-    result += value
-  }
-  const data = JSON.parse(result)
-  loading.value = false
+      result += value
+    }
+    data = JSON.parse(result)
+  }catch{}
+  loadingData.value = false
+
+  if(!data) return
   const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
-  dataMap.value = new Map(mapLikeBuffer)
+  for(const [idx, instr] of mapLikeBuffer){
+    if(dataMap.value.has(idx)) continue
+    dataMap.value.set(idx, instr)
+  }
 }
 
 const initializeTestData = () => {
   const rawBuffer = testData.ringBuffer
   const mapLikeBuffer = rawBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
-  dataMap.value = new Map(mapLikeBuffer)
+  for(const [idx, instr] of mapLikeBuffer){
+    if(dataMap.value.has(idx)) continue
+    dataMap.value.set(idx, instr)
+  }
 }
 
 const sliceIndex = shallowRef(0)
