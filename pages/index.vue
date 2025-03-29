@@ -196,15 +196,15 @@ const instructions = computed(() => {
   })
 })
 
-const moveForward = async (distance: number) => {
+const moveForward = async (cm: number) => {
   isMovingForward.value = true
-  await $api('/forward', {query: {cm: distance}})
+  await $api('/forward', {query: {cm}})
   isMovingForward.value = false
 }
 
-const moveBackward = async (distance: number) => {
+const moveBackward = async (cm: number) => {
   isMovingBackward.value = true
-  await $api('/backward', {query: {cm: distance}})
+  await $api('/backward', {query: {cm}})
   isMovingBackward.value = false
 
 }
@@ -341,7 +341,7 @@ const checkStraightWallDistance = () => {
 const decideNextMove = async () => {
   const {distance} = checkStraightWallDistance()
   if (distance >= 0.5) {
-    await moveForward(distance - 0.5)
+    await moveForward(Math.floor((distance - 0.6)*100))
     await measure()
     await fetchData()
     await decideNextMove()
