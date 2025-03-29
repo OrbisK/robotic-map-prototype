@@ -1,23 +1,55 @@
 <template>
-  <main>
-    <robo-widget
-      :instructions="instructions"
-      :grid-width="inputWidth / GRID_CELL_SIZE"
-      :grid-height="inputHeight / GRID_CELL_SIZE"
-    ></robo-widget>
-    <input type="number" v-model="inputWidthMeter"/>
-    <input type="number" v-model="inputHeightMeter"/>
-    <button @click="markCells">Mark</button>
-    <button @click="initializeTestData">Testdata (JSON)</button>
-    <button @click="fetchData">Testdata (API) {{ loading ? 'lädt' : '' }}</button>
-    <button @click="sliceIndex++">Next</button>
-    <button @click="sliceIndex+=10">Next 10</button>
-    <button @click="sliceIndex+=50">Next 50</button>
+  <main class="flex justify-center items-center flex-col gap-3">
+    <color-mode-button></color-mode-button>
+    <UCard variant="subtle" class="flex">
+      <robo-widget
+          :instructions="instructions"
+          :grid-width="inputWidth / GRID_CELL_SIZE"
+          :grid-height="inputHeight / GRID_CELL_SIZE"
+      ></robo-widget>
+    </UCard>
+    <UCard>
+      <template #header>
+        Debug Area
+      </template>
+      <h2>Canvas</h2>
+      <UInputNumber v-model="inputWidthMeter"/>
+      <UInputNumber v-model="inputHeightMeter"/>
+      <USeparator />
+      <h2>Data</h2>
+      <UButtonGroup>
+        <UButton @click="initializeTestData">Testdata (JSON)</UButton>
+        <UButton :loading="loadingData" @click="fetchData">Testdata (API)</UButton>
+      </UButtonGroup>
+      <USeparator />
+      <h2>Display Instructions</h2>
+      <UButtonGroup>
+        <UButton @click="sliceIndex++">Next</UButton>
+        <UButton @click="sliceIndex+=10">Next 10</UButton>
+        <UButton @click="sliceIndex+=50">Next 50</UButton>
+      </UButtonGroup>
+      <USeparator />
+      <h2>Give Instructions</h2>
+      <UButtonGroup>
+        <UButton :disabled="loadingAny" color="info" :loading="loadingData" @click="fetchData">Data</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isMovingForward" @click="moveForward(50)">Forward</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isMovingBackward" @click="moveBackward(50)">Backward</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isTurningLeft" @click="turnLeft(90)">Left</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isTurningRight" @click="turnRight(90)">Right</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isMeasuring" @click="measure">Measuring</UButton>
+      </UButtonGroup>
+    </UCard>
   </main>
 </template>
 
 <script setup lang="ts">
 import testData from '../test-data.json'
+
+const backendURL = "http://192.168.4.1"
+
+const $api = $fetch.create({
+  baseURL: backendURL,
+})
 
 const inputWidthMeter = shallowRef(10)
 const inputHeightMeter = shallowRef(10)
@@ -28,12 +60,21 @@ const inputHeight = computed(() => meterToUnit(inputHeightMeter.value))
 const dataMap = ref(new Map())
 
 const loadingData = shallowRef(false)
+const isMovingForward = shallowRef(false)
+const isMovingBackward = shallowRef(false)
+const isTurningLeft = shallowRef(false)
+const isTurningRight = shallowRef(false)
+const isMeasuring = shallowRef(false)
+
+const loadingAny = computed(()=>{
+  return loadingData.value || isMovingForward.value || isMovingBackward.value || isTurningLeft.value || isTurningRight.value || isMeasuring.value
+})
 
 const fetchData = async () => {
   loadingData.value = true
   let data = undefined
   try {
-    const response = await $fetch('http://192.168.4.1/data', {method: "GET", responseType: 'stream',})
+    const response = await $api('/data', {method: "GET", responseType: 'stream',})
     // Create a new ReadableStream from the response with TextDecoderStream to get the data as text
     const reader = response.pipeThrough(new TextDecoderStream()).getReader()
 
@@ -100,4 +141,35 @@ const instructions = computed(() => {
     }
   })
 })
+
+const moveForward = async (distance: number)=>{
+  isMovingForward.value = true
+  await $api('/forward', {query: {cm: distance}})
+  isMovingForward.value = false
+}
+
+const moveBackward =async  (distance: number)=>{
+  isMovingBackward.value = true
+  await $api('/backward', {query: {cm: distance}})
+  isMovingBackward.value = false
+
+}
+
+const turnLeft = async (angle: number)=>{
+  isTurningLeft.value = true
+  await $api('/left', {query: {degree: angle}})
+  isTurningLeft.value = false
+}
+
+const turnRight = async (angle: number)=>{
+  isTurningRight.value = true
+  await $api('/right', {query: {degree: angle}})
+  isTurningRight.value = false
+}
+
+const measure = async ()=>{
+  isMeasuring.value = true
+  await $api('/scan100')
+  isMeasuring.value = false
+}
 </script>
