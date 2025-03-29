@@ -83,7 +83,7 @@ const loading = shallowRef(false)
 
 const initializeTestDataApi = async () => {
   loading.value = true
-  const res = await $fetch('http://192.168.4.1/data', {method: "GET", responseType: 'stream',})
+  const response = await $fetch('http://192.168.4.1/data', {method: "GET", responseType: 'stream',})
   // Create a new ReadableStream from the response with TextDecoderStream to get the data as text
   const reader = response.pipeThrough(new TextDecoderStream()).getReader()
 
