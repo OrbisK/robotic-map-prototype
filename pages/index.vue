@@ -10,8 +10,9 @@
     <UCard variant="subtle" class="flex">
       <robo-widget
           :instructions="instructions"
-          :grid-width="inputWidth / GRID_CELL_SIZE"
-          :grid-height="inputHeight / GRID_CELL_SIZE"
+          :grid="grid"
+          :roboter-angle="roboterAngle"
+          :roboter-position="roboterPosition"
       ></robo-widget>
     </UCard>
     <UCard>
@@ -21,29 +22,34 @@
       <h2>Canvas</h2>
       <UInputNumber v-model="inputWidthMeter"/>
       <UInputNumber v-model="inputHeightMeter"/>
-      <USeparator />
+      <USeparator/>
       <h2>Data</h2>
       <UButtonGroup>
         <UButton @click="initializeTestData">Testdata (JSON)</UButton>
+        <UButton @click="initializeTestData2">Testdata2 (JSON)</UButton>
         <UButton :loading="loadingData" @click="fetchData">Testdata (API)</UButton>
       </UButtonGroup>
-      <USeparator />
+      <USeparator/>
       <h2>Display Instructions</h2>
-      Manual Mode<USwitch v-model="manualMode"></USwitch>
+      Manual Mode
+      <USwitch v-model="manualMode"></USwitch>
       <UButtonGroup>
         <UButton @click="sliceIndex++">Next</UButton>
         <UButton @click="sliceIndex+=10">Next 10</UButton>
         <UButton @click="sliceIndex+=50">Next 50</UButton>
       </UButtonGroup>
-      <USeparator />
+      <USeparator/>
       <h2>Give Instructions</h2>
       <UButtonGroup>
         <UButton :disabled="loadingAny" color="info" :loading="loadingData" @click="fetchData">Data</UButton>
-        <UButton :disabled="loadingAny" color="info" :loading="isMovingForward" @click="moveForward(50)">Forward</UButton>
-        <UButton :disabled="loadingAny" color="info" :loading="isMovingBackward" @click="moveBackward(50)">Backward</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isMovingForward" @click="moveForward(50)">Forward
+        </UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isMovingBackward" @click="moveBackward(50)">Backward
+        </UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isTurningLeft" @click="turnLeft">Left</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isTurningRight" @click="turnRight">Right</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isMeasuring" @click="measure">Measuring</UButton>
+        <UButton @click="decideNextMove">Next Move?</UButton>
       </UButtonGroup>
     </UCard>
   </main>
@@ -51,6 +57,9 @@
 
 <script setup lang="ts">
 import testData from '../test-data.json'
+import testData2 from '../test-data2.json'
+import type {GridCell} from "~/types";
+import {unitToMeter} from "~/utils/units";
 
 const backendURL = "http://192.168.4.1"
 
@@ -61,13 +70,31 @@ const $api = $fetch.create({
   }
 })
 
-const manualMode = ref(false)
+const generateGrid = (width, height) => {
+  let newGrid = []
+
+  for (let y = 0; y < height; y++) {
+    if (!newGrid[y]) {
+      newGrid[y] = []
+    }
+    for (let x = 0; x < width; x++) {
+      const empty = false
+      newGrid[y][x] = {x, y, empty}
+    }
+  }
+  return newGrid
+}
+
 
 const inputWidthMeter = shallowRef(10)
 const inputHeightMeter = shallowRef(10)
 
 const inputWidth = computed(() => meterToUnit(inputWidthMeter.value))
 const inputHeight = computed(() => meterToUnit(inputHeightMeter.value))
+
+const grid = ref<GridCell[][]>(generateGrid(inputWidth.value / GRID_CELL_SIZE, inputHeight.value / GRID_CELL_SIZE))
+
+const manualMode = ref(false)
 
 const dataMap = ref(new Map())
 
@@ -78,7 +105,7 @@ const isTurningLeft = shallowRef(false)
 const isTurningRight = shallowRef(false)
 const isMeasuring = shallowRef(false)
 
-const loadingAny = computed(()=>{
+const loadingAny = computed(() => {
   return loadingData.value || isMovingForward.value || isMovingBackward.value || isTurningLeft.value || isTurningRight.value || isMeasuring.value
 })
 
@@ -101,13 +128,14 @@ const fetchData = async () => {
       result += value
     }
     data = JSON.parse(result)
-  }catch{}
+  } catch {
+  }
   loadingData.value = false
 
-  if(!data) return
+  if (!data) return
   const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
-  for(const [idx, instr] of mapLikeBuffer){
-    if(dataMap.value.has(idx)) continue
+  for (const [idx, instr] of mapLikeBuffer) {
+    if (dataMap.value.has(idx)) continue
     dataMap.value.set(idx, instr)
   }
 }
@@ -115,8 +143,17 @@ const fetchData = async () => {
 const initializeTestData = () => {
   const rawBuffer = testData.ringBuffer
   const mapLikeBuffer = rawBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
-  for(const [idx, instr] of mapLikeBuffer){
-    if(dataMap.value.has(idx)) continue
+  for (const [idx, instr] of mapLikeBuffer) {
+    if (dataMap.value.has(idx)) continue
+    dataMap.value.set(idx, instr)
+  }
+}
+
+const initializeTestData2 = () => {
+  const rawBuffer = testData2.ringBuffer
+  const mapLikeBuffer = rawBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
+  for (const [idx, instr] of mapLikeBuffer) {
+    if (dataMap.value.has(idx)) continue
     dataMap.value.set(idx, instr)
   }
 }
@@ -159,43 +196,167 @@ const instructions = computed(() => {
   })
 })
 
-const moveForward = async (distance: number)=>{
+const moveForward = async (distance: number) => {
   isMovingForward.value = true
   await $api('/forward', {query: {cm: distance}})
   isMovingForward.value = false
 }
 
-const moveBackward =async  (distance: number)=>{
+const moveBackward = async (distance: number) => {
   isMovingBackward.value = true
   await $api('/backward', {query: {cm: distance}})
   isMovingBackward.value = false
 
 }
 
-const turnLeft = async ()=>{
+const turnLeft = async () => {
   isTurningLeft.value = true
   await $api('/left')
   isTurningLeft.value = false
 }
 
-const turnRight = async ()=>{
+const turnRight = async () => {
   isTurningRight.value = true
   await $api('/right')
   isTurningRight.value = false
 }
 
-const measure = async ()=>{
+const measure = async () => {
   isMeasuring.value = true
   await $api('/scan100')
   isMeasuring.value = false
 }
 
-const start = async ()=>{
-  if(loadingAny.value) return
+const generateRoboterPosition = (width, height) => {
+  return {x: Math.floor(width / 2), y: Math.floor(height / 2)}
+}
+
+const roboterAngle = shallowRef(90)
+const roboterPosition = ref(generateRoboterPosition(inputWidth.value / GRID_CELL_SIZE, inputHeight.value / GRID_CELL_SIZE))
+
+const getCellTop = (x, y) => {
+  if (y <= 0) return undefined
+  return grid.value?.[y - 1]?.[x]
+}
+
+const getCellRight = (x, y) => {
+  if (x >= grid.value[0].length - 1) return undefined
+  return grid.value?.[y]?.[x + 1]
+}
+
+const getCellBottom = (x, y) => {
+  if (y >= grid.value.length - 1) return undefined
+  return grid.value?.[y + 1]?.[x]
+}
+
+const getCellLeft = (x, y) => {
+  if (x <= 0) return undefined
+  return grid.value?.[y]?.[x - 1]
+}
+
+const checkClusterTop = (x, y) => {
+  return [getCellTop(x, y), getCellTop(x + 1, y), getCellTop(x - 1, y)]
+}
+
+const checkClusterRight = (x, y) => {
+  return [getCellRight(x, y), getCellRight(x, y + 1), getCellRight(x, y - 1)]
+}
+
+const checkClusterBottom = (x, y) => {
+  return [getCellBottom(x, y), getCellBottom(x + 1, y), getCellBottom(x - 1, y)]
+}
+
+const checkClusterLeft = (x, y) => {
+  return [getCellLeft(x, y), getCellLeft(x, y + 1), getCellLeft(x, y - 1)]
+}
+
+const checkStraightWallDistance = () => {
+  const {x, y} = roboterPosition.value
+  const angle = roboterAngle.value
+  const direction = angleToDirection(angle)
+
+  let xClone = Math.floor(x)
+  let yClone = Math.floor(y)
+
+  let distance = -1
+
+  // check how far the next wall reachable wall is
+  // checked from the robots current position.
+  // the robot can only reach the wall if the path is 3 cells wide
+  switch (direction) {
+    case "top":
+      while (true) {
+        const cluster = checkClusterTop(xClone, yClone)
+        console.log(cluster)
+        const wall = cluster.some((cell) => {
+          return !cell?.empty
+        })
+        if (wall) break
+        distance++
+        yClone--
+        if (yClone < 0) break
+      }
+      break
+    case "right":
+      while (true) {
+        const wall = checkClusterRight(xClone, yClone).some((cell) => {
+          return !cell?.empty
+        })
+        if (wall) break
+        distance++
+        xClone++
+        if (xClone >= grid.value[0].length) break
+      }
+      break
+    case "bottom":
+      while (true) {
+        const wall = checkClusterBottom(xClone, yClone).some((cell) => {
+          return !cell?.empty
+        })
+        if (wall) break
+        yClone++
+        distance++
+        if (yClone >= grid.value.length) break
+      }
+      break
+    case "left":
+      while (true) {
+        const wall = checkClusterLeft(xClone, yClone).some((cell) => {
+          return !cell?.empty
+        })
+        if (wall) break
+        xClone--
+        distance++
+        if (xClone < 0) break
+      }
+      break
+  }
+  console.log(distance, direction)
+  return {
+    distance: unitToMeter(distance * GRID_CELL_SIZE),
+    direction,
+  }
+}
+
+const decideNextMove = async () => {
+  const {distance} = checkStraightWallDistance()
+  if (distance >= 0.5) {
+    await moveForward(distance - 0.5)
+    await measure()
+    await decideNextMove()
+    return
+  }
+  console.log("ENDE")
+}
+
+const start = async () => {
+  if (loadingAny.value) return
   await measure()
   await turnRight()
   await turnRight()
   await measure()
   await fetchData()
+
+  await decideNextMove()
 }
 </script>

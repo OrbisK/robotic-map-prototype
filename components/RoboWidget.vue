@@ -7,49 +7,31 @@
 
 <script setup lang="ts">
 import type {GridCell, Instruction} from "~/types";
+import {angleToDirection} from "~/utils/units";
 
 const props = defineProps({
   instructions: {
     type: Object as PropType<Instruction[]>,
   },
-  gridWidth: {
-    type: Number,
-    default: 10,
-  },
-  gridHeight: {
-    type: Number,
-    default: 10,
-  },
+  grid: {
+    type: Array as PropType<GridCell[][]>,
+  }
 })
 
-const generateGrid = (width, height) => {
-  let newGrid = []
+const roboterAngle = defineModel('roboterAngle', {
+  type: Number,
+  default: 90
+})
 
-  for (let y = 0; y < height; y++) {
-    if (!newGrid[y]) {
-      newGrid[y] = []
-    }
-    for (let x = 0; x < width; x++) {
-      const empty = false
-      newGrid[y][x] = {x, y, empty}
-    }
-  }
-  return newGrid
-}
-
-const grid = ref<GridCell[][]>(generateGrid(props.gridWidth, props.gridHeight))
-
-const generateRoboterPosition = (width, height) => {
-  return {x: Math.floor(width / 2), y: Math.floor(height / 2)}
-}
-
-const roboterPosition = ref(generateRoboterPosition(grid.value[0].length, grid.value.length))
-const roboterAngle = shallowRef(90)
+const roboterPosition = defineModel('roboterPosition', {
+  type: Object as PropType<{x: number, y: number}>,
+  default: {x: 0, y: 0}
+})
 
 function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngle = 15) {
   const targetAngle = (robotAngle + direction) % 360; // Kombiniere RobotAngle und Direction
-  for (let y = 0; y < grid.value.length; y++) {
-    for (let x = 0; x < grid.value[y].length; x++) {
+  for (let y = 0; y < props.grid.length; y++) {
+    for (let x = 0; x < props.grid[y].length; x++) {
       const cellCenterX = (x + 0.5) * GRID_CELL_SIZE;
       const cellCenterY = (y + 0.5) * GRID_CELL_SIZE;
 
@@ -66,7 +48,7 @@ function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngl
       const relativeAngle = (angleToCell - targetAngle + 360) % 360;
 
       if (relativeAngle <= arcAngle || relativeAngle >= 360 - arcAngle) {
-        grid.value[y][x].empty = true;
+        props.grid[y][x].empty = true;
       }
     }
   }
@@ -79,17 +61,17 @@ const applyInstruction = (instruction: Instruction) => {
       break
     case 'move':
       const units = meterToUnit(instruction.payload.distance / 100) / GRID_CELL_SIZE
-      switch (roboterAngle.value % 360) {
-        case 90:
+      switch (angleToDirection(roboterAngle.value % 360)) {
+        case "top":
           roboterPosition.value.y -= units
           break
-        case 0:
+        case "right":
           roboterPosition.value.x += units
           break
-        case 270:
+        case "bottom":
           roboterPosition.value.y += units
           break
-        case 180:
+        case "left":
           roboterPosition.value.x -= units
           break
       }
