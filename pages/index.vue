@@ -49,6 +49,9 @@ const backendURL = "http://192.168.4.1"
 
 const $api = $fetch.create({
   baseURL: backendURL,
+  headers: {
+    'accept': 'application/json',
+  }
 })
 
 const inputWidthMeter = shallowRef(10)
