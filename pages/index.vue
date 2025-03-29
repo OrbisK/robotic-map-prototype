@@ -4,7 +4,8 @@
     <input type="number" v-model="inputWidthMeter"/>
     <input type="number" v-model="inputHeightMeter"/>
     <button @click="markCells">Mark</button>
-    <button @click="initializeTestData">Testdata</button>
+    <button @click="initializeTestData">Testdata (JSON)</button>
+    <button @click="initializeTestDataApi">Testdata (API) {{loading ? 'lädt' : ''}}</button>
     <button @click="sliceIndex++">Next</button>
     <button @click="sliceIndex+=10">Next 10</button>
     <button @click="sliceIndex+=50">Next 50</button>
@@ -77,6 +78,16 @@ const isUpToDate = shallowRef(false)
 const latestAppliedDataIdx = -1
 
 const dataMap = ref(new Map())
+
+const loading = shallowRef(false)
+
+const initializeTestDataApi = async () => {
+  loading.value = true
+  const {data} = await $fetch('http://192.168.4.1/data', {method: "GET"})
+  loading.value = false
+  const mapLikeBuffer = data.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
+  dataMap.value = new Map(mapLikeBuffer)
+}
 
 // idx:
 // type: 2 ist messung | 1 vorwärts | 0 rückwärts | 3 links | 4 rechts
