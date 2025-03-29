@@ -8,6 +8,9 @@ dependencies:
   nuxt:
     specifier: ^3.16.1
     version: 3.16.1(typescript@5.8.2)(vue-tsc@2.2.8)
+  p5i:
+    specifier: ^0.6.0
+    version: 0.6.0
   vue:
     specifier: ^3.5.13
     version: 3.5.13(typescript@5.8.2)
@@ -3825,6 +3828,10 @@ packages:
       '@oxc-parser/binding-wasm32-wasi': 0.56.5
       '@oxc-parser/binding-win32-arm64-msvc': 0.56.5
       '@oxc-parser/binding-win32-x64-msvc': 0.56.5
+    dev: false
+
+  /p5i@0.6.0:
+    resolution: {integrity: sha512-Hw+J6Fq0ovVnC/h+6wInwZZyAu63eUzFW030+OksWs+MGftExxckKpKG8BRMQakj27oLpVwZEt63jNO17fYwcw==}
     dev: false
 
   /package-json-from-dist@1.0.1:
