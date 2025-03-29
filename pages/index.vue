@@ -83,9 +83,21 @@ const loading = shallowRef(false)
 
 const initializeTestDataApi = async () => {
   loading.value = true
-  const {data} = await $fetch('http://192.168.4.1/data', {method: "GET"})
+  const res = await $fetch('http://192.168.4.1/data', {method: "GET", responseType: 'stream',})
+  // Create a new ReadableStream from the response with TextDecoderStream to get the data as text
+  const reader = response.pipeThrough(new TextDecoderStream()).getReader()
+
+  // Read the chunk of data as we get it
+  while (true) {
+    const { value, done } = await reader.read()
+
+    if (done)
+      break
+
+    console.log('Received:', value)
+  }
   loading.value = false
-  const mapLikeBuffer = data.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
+  const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
   dataMap.value = new Map(mapLikeBuffer)
 }
 
