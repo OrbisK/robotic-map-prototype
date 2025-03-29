@@ -87,6 +87,7 @@ const initializeTestDataApi = async () => {
   // Create a new ReadableStream from the response with TextDecoderStream to get the data as text
   const reader = response.pipeThrough(new TextDecoderStream()).getReader()
 
+  let result = ''
   // Read the chunk of data as we get it
   while (true) {
     const { value, done } = await reader.read()
@@ -94,8 +95,11 @@ const initializeTestDataApi = async () => {
     if (done)
       break
 
+    result += value
+
     console.log('Received:', value)
   }
+  const data = JSON.parse(result)
   loading.value = false
   const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
   dataMap.value = new Map(mapLikeBuffer)
