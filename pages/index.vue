@@ -1,11 +1,15 @@
 <template>
   <main>
-    <div ref="p5Container"></div>
+    <robo-map
+        v-if="grid.length"
+        :grid="grid"
+        :robot-position="roboterPosition"
+    ></robo-map>
     <input type="number" v-model="inputWidthMeter"/>
     <input type="number" v-model="inputHeightMeter"/>
     <button @click="markCells">Mark</button>
     <button @click="initializeTestData">Testdata (JSON)</button>
-    <button @click="initializeTestDataApi">Testdata (API) {{loading ? 'lädt' : ''}}</button>
+    <button @click="initializeTestDataApi">Testdata (API) {{ loading ? 'lädt' : '' }}</button>
     <button @click="sliceIndex++">Next</button>
     <button @click="sliceIndex+=10">Next 10</button>
     <button @click="sliceIndex+=50">Next 50</button>
@@ -15,10 +19,9 @@
 <script setup lang="ts">
 import {type P5I, p5i} from 'p5i'
 import testData from '../test-data.json'
+import type {GridCell} from "~/types";
 
-const p5Container = useTemplateRef('p5Container');
-
-const grid = ref([])
+const grid = ref<GridCell[][]>([[]])
 const roboterPosition = ref({x: 0, y: 0})
 const roboterAngle = shallowRef(90)
 
@@ -27,25 +30,6 @@ const inputHeightMeter = shallowRef(10)
 
 const inputWidth = computed(() => meterToUnit(inputWidthMeter.value))
 const inputHeight = computed(() => meterToUnit(inputHeightMeter.value))
-
-const UNIT_TO_METER_FACTOR = 0.02
-const EMPTY_COLOR = 125
-
-const unitToMeter = (units) => {
-  return units * UNIT_TO_METER_FACTOR
-}
-
-const meterToUnit = (meters) => {
-  return meters / UNIT_TO_METER_FACTOR
-}
-
-const GRID_CELL_SIZE = meterToUnit(0.1)
-
-function setup({createCanvas, stroke, frameRate, background}: P5I) {
-  createCanvas(inputWidth.value, inputHeight.value)
-  stroke(255)
-  frameRate(1)
-}
 
 function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngle = 15) {
   const targetAngle = (robotAngle + direction) % 360; // Kombiniere RobotAngle und Direction
@@ -73,10 +57,6 @@ function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngl
   }
 }
 
-const isUpToDate = shallowRef(false)
-
-const latestAppliedDataIdx = -1
-
 const dataMap = ref(new Map())
 
 const loading = shallowRef(false)
@@ -90,23 +70,18 @@ const initializeTestDataApi = async () => {
   let result = ''
   // Read the chunk of data as we get it
   while (true) {
-    const { value, done } = await reader.read()
+    const {value, done} = await reader.read()
 
     if (done)
       break
 
     result += value
-
-    console.log('Received:', value)
   }
   const data = JSON.parse(result)
   loading.value = false
   const mapLikeBuffer = data.ringBuffer.filter(b => b.idx !== -1).map(({idx, ...rest}) => [idx, rest])
   dataMap.value = new Map(mapLikeBuffer)
 }
-
-// idx:
-// type: 2 ist messung | 1 vorwärts | 0 rückwärts | 3 links | 4 rechts
 
 const initializeTestData = () => {
   const rawBuffer = testData.ringBuffer
@@ -144,37 +119,6 @@ const instructions = computed(() => {
   })
 })
 
-function draw({background, rect, fill, stroke, push, pop, circle}: P5I) {
-  if (isUpToDate.value) {
-    return
-  }
-  const renderCell = ({x, y, empty}) => {
-    if (!empty) {
-      return
-    }
-    push()
-    fill(EMPTY_COLOR);
-    stroke(EMPTY_COLOR)
-    rect(x * GRID_CELL_SIZE, y * GRID_CELL_SIZE, GRID_CELL_SIZE, GRID_CELL_SIZE)
-    pop()
-  }
-  const renderRobot = () => {
-    push()
-    fill(255)
-    stroke(255)
-    circle(roboterPosition.value.x * GRID_CELL_SIZE + GRID_CELL_SIZE * 0.5, roboterPosition.value.y * GRID_CELL_SIZE + GRID_CELL_SIZE * 0.5, GRID_CELL_SIZE * 3, GRID_CELL_SIZE * 3)
-    pop()
-  }
-  background(0)
-
-  for (let i = 0; i < grid.value.length; i++) {
-    for (let j = 0; j < grid.value[i].length; j++) {
-      renderCell(grid.value[i][j])
-    }
-  }
-  renderRobot()
-}
-
 // generate grid as 2d array
 const generateGrid = (width, height) => {
   const gridBefore = grid.value ?? []
@@ -208,10 +152,8 @@ onMounted(() => {
   watch(() => [inputWidth.value, inputHeight.value], () => {
     const gridCellsHeight = inputHeight.value / GRID_CELL_SIZE
     const gridCellsWidth = inputWidth.value / GRID_CELL_SIZE
-    p5Container.value.innerHTML = ''
     grid.value = generateGrid(gridCellsWidth, gridCellsHeight)
     roboterPosition.value = generateRoboterPosition(gridCellsWidth, gridCellsHeight)
-    p5i({setup, draw}, p5Container.value)
   }, {immediate: true})
 })
 
