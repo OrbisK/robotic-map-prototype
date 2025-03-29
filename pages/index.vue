@@ -343,6 +343,7 @@ const decideNextMove = async () => {
   if (distance >= 0.5) {
     await moveForward(distance - 0.5)
     await measure()
+    await fetchData()
     await decideNextMove()
     return
   }
