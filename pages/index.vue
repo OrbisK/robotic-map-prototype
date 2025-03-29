@@ -9,7 +9,7 @@
     <input type="number" v-model="inputHeightMeter"/>
     <button @click="markCells">Mark</button>
     <button @click="initializeTestData">Testdata (JSON)</button>
-    <button @click="initializeTestDataApi">Testdata (API) {{ loading ? 'lädt' : '' }}</button>
+    <button @click="fetchData">Testdata (API) {{ loading ? 'lädt' : '' }}</button>
     <button @click="sliceIndex++">Next</button>
     <button @click="sliceIndex+=10">Next 10</button>
     <button @click="sliceIndex+=50">Next 50</button>
