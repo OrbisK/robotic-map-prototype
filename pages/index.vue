@@ -152,7 +152,7 @@ const instructions = computed(() => {
         return {
           type: 'turn',
           payload: {
-            angle: instr.type === 3 ? -instr.dir : instr.dir
+            angle: instr.type === 4 ? -instr.dir : instr.dir
           }
         }
     }
