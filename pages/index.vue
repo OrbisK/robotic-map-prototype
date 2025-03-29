@@ -34,8 +34,8 @@
         <UButton :disabled="loadingAny" color="info" :loading="loadingData" @click="fetchData">Data</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isMovingForward" @click="moveForward(50)">Forward</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isMovingBackward" @click="moveBackward(50)">Backward</UButton>
-        <UButton :disabled="loadingAny" color="info" :loading="isTurningLeft" @click="turnLeft(90)">Left</UButton>
-        <UButton :disabled="loadingAny" color="info" :loading="isTurningRight" @click="turnRight(90)">Right</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isTurningLeft" @click="turnLeft">Left</UButton>
+        <UButton :disabled="loadingAny" color="info" :loading="isTurningRight" @click="turnRight">Right</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isMeasuring" @click="measure">Measuring</UButton>
       </UButtonGroup>
     </UCard>
@@ -158,15 +158,15 @@ const moveBackward =async  (distance: number)=>{
 
 }
 
-const turnLeft = async (angle: number)=>{
+const turnLeft = async ()=>{
   isTurningLeft.value = true
-  await $api('/left', {query: {degree: angle}})
+  await $api('/left')
   isTurningLeft.value = false
 }
 
-const turnRight = async (angle: number)=>{
+const turnRight = async ()=>{
   isTurningRight.value = true
-  await $api('/right', {query: {degree: angle}})
+  await $api('/right')
   isTurningRight.value = false
 }
 
