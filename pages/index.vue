@@ -301,6 +301,7 @@ const checkStraightWallDistance = () => {
         const wall = cluster.some((cell) => {
           return !cell?.empty
         })
+        console.log("top detection result: ", wall, distance)
         if (wall) break
         distance++
         yClone--
@@ -312,6 +313,7 @@ const checkStraightWallDistance = () => {
         const wall = checkClusterRight(xClone, yClone).some((cell) => {
           return !cell?.empty
         })
+        console.log("right detection result: ", wall, distance)
         if (wall) break
         distance++
         xClone++
@@ -323,6 +325,7 @@ const checkStraightWallDistance = () => {
         const wall = checkClusterBottom(xClone, yClone).some((cell) => {
           return !cell?.empty
         })
+        console.log("botto, detection result: ", wall, distance)
         if (wall) break
         yClone++
         distance++
@@ -334,6 +337,7 @@ const checkStraightWallDistance = () => {
         const wall = checkClusterLeft(xClone, yClone).some((cell) => {
           return !cell?.empty
         })
+        console.log("left detection result: ", wall, distance)
         if (wall) break
         xClone--
         distance++
@@ -368,10 +372,11 @@ const randomTurn = async ()=>{
 }
 
 const decideNextMove = async () => {
+  const MIN_DIST = 0.5
   const {distance} = checkStraightWallDistance()
-  if (distance >= 0.5) {
+  if (distance >= MIN_DIST) {
     prevTurn = undefined
-    const forwardMaxDistance = Math.floor((distance - 0.6)*100)
+    const forwardMaxDistance = Math.floor((distance - MIN_DIST + 0.1)*100)
     console.log("moving forward: ", forwardMaxDistance - forwardMaxDistance % 10)
     await moveForward(forwardMaxDistance - forwardMaxDistance % 10)
     await measure()
@@ -388,6 +393,7 @@ const start = async () => {
   if (loadingAny.value) return
   await measure()
   await turnRight()
+  await new Promise(r => setTimeout(r, 10))
   await turnRight()
   await measure()
   await fetchData()

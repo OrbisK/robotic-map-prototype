@@ -88,11 +88,11 @@ const applyInstruction = (instruction: Instruction) => {
 }
 
 
-watch(() => props.instructions.length, (newL, oldL) => {
+watch(() => props.instructions?.length ?? 0, (newL, oldL) => {
   if (newL > oldL) {
     const diff = newL - oldL
     for (let i = 0; i < diff; i++) {
-      applyInstruction(props.instructions[oldL + i])
+      if(props.instructions?.[oldL + i]) applyInstruction(props.instructions[oldL + i])
     }
   }
 })
