@@ -11,8 +11,8 @@
       <robo-widget
           :instructions="instructions"
           :grid="grid"
-          v-model:roboter-angle="roboterAngle"
           v-model:roboter-position="roboterPosition"
+          @change-angle="roboterAngle = $event"
       ></robo-widget>
     </UCard>
     <UCard>
@@ -298,7 +298,6 @@ const checkStraightWallDistance = () => {
     case "top":
       while (true) {
         const cluster = checkClusterTop(xClone, yClone)
-        console.log(cluster)
         const wall = cluster.some((cell) => {
           return !cell?.empty
         })
@@ -351,17 +350,17 @@ const checkStraightWallDistance = () => {
 
 let prevTurn
 
-const randomTurn = ()=>{
-  const turn = Math.random() > 0.5 ? 90 : -90
+const randomTurn = async ()=>{
+  const turn = Math.random() > 0.5 ? "left" : "right"
   if(prevTurn === turn){
-    randomTurn()
+    await randomTurn()
     return
   }
   prevTurn = turn
   if(turn === 90){
-    turnRight()
+    await turnRight()
   }else{
-    turnLeft()
+    await turnLeft()
   }
 }
 

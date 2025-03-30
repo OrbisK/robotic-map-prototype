@@ -18,14 +18,19 @@ const props = defineProps({
   }
 })
 
-const roboterAngle = defineModel('roboterAngle', {
-  type: Number,
-  default: 90
+const emit = defineEmits<{
+  changeAngle: [number]
+}>()
+
+const roboterAngle = shallowRef(90)
+
+watch(() => roboterAngle.value, (newAngle) => {
+  emit('changeAngle', newAngle)
 })
 
 const roboterPosition = defineModel('roboterPosition', {
   type: Object as PropType<{x: number, y: number}>,
-  default: {x: 0, y: 0}
+  default: {x: 0, y: 0},
 })
 
 function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngle = 15) {
