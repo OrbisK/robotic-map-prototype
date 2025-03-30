@@ -371,7 +371,9 @@ const decideNextMove = async () => {
   const {distance} = checkStraightWallDistance()
   if (distance >= 0.5) {
     prevTurn = undefined
-    await moveForward(Math.floor((distance - 0.6)*100))
+    const forwardMaxDistance = Math.floor((distance - 0.6)*100)
+    console.log("moving forward: ", forwardMaxDistance - forwardMaxDistance % 10)
+    await moveForward(forwardMaxDistance - forwardMaxDistance % 10)
     await measure()
     await fetchData()
     await decideNextMove()
