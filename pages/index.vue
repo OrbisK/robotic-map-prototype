@@ -325,7 +325,7 @@ const checkStraightWallDistance = () => {
         const wall = checkClusterBottom(xClone, yClone).some((cell) => {
           return !cell?.empty
         })
-        console.log("botto, detection result: ", wall, distance)
+        console.log("bottom, detection result: ", wall, distance)
         if (wall) break
         yClone++
         distance++
@@ -386,6 +386,7 @@ const decideNextMove = async () => {
   }
   console.log("wall is too close, turning: ", distance)
   await randomTurn()
+  await fetchData()
   await decideNextMove()
 }
 
