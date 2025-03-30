@@ -62,7 +62,7 @@ function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngl
 const applyInstruction = (instruction: Instruction) => {
   switch (instruction.type) {
     case 'measure':
-      markCellsInArc(roboterPosition.value, roboterAngle.value, instruction.payload.angle, meterToUnit(instruction.payload.distance / 100), 15)
+      markCellsInArc(roboterPosition.value, roboterAngle.value, instruction.payload.angle, meterToUnit(instruction.payload.distance / 100), 7)
       break
     case 'move':
       const units = meterToUnit(instruction.payload.distance / 100) / GRID_CELL_SIZE
