@@ -351,13 +351,17 @@ const checkStraightWallDistance = () => {
 let prevTurn
 
 const randomTurn = async ()=>{
-  const turn = Math.random() > 0.5 ? "left" : "right"
-  if(prevTurn === turn){
-    await randomTurn()
+  if(prevTurn){
+    if(prevTurn === "left"){
+      await turnLeft()
+    }else{
+      await turnRight()
+    }
     return
   }
+  const turn = Math.random() > 0.5 ? "left" : "right"
   prevTurn = turn
-  if(turn === 90){
+  if(turn === "right"){
     await turnRight()
   }else{
     await turnLeft()
@@ -367,14 +371,15 @@ const randomTurn = async ()=>{
 const decideNextMove = async () => {
   const {distance} = checkStraightWallDistance()
   if (distance >= 0.5) {
+    prevTurn = undefined
     await moveForward(Math.floor((distance - 0.6)*100))
     await measure()
     await fetchData()
     await decideNextMove()
     return
   }
-  //randomTurn()
-  console.log("ENDE")
+  await randomTurn()
+  await decideNextMove()
 }
 
 const start = async () => {
@@ -385,6 +390,6 @@ const start = async () => {
   await measure()
   await fetchData()
 
-  //await decideNextMove()
+  await decideNextMove()
 }
 </script>
