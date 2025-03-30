@@ -379,6 +379,7 @@ const decideNextMove = async () => {
     await decideNextMove()
     return
   }
+  console.log("wall is too close, turning: ", distance)
   await randomTurn()
   await decideNextMove()
 }
