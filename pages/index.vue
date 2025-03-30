@@ -374,9 +374,9 @@ const randomTurn = async ()=>{
 const decideNextMove = async () => {
   const MIN_DIST = 0.5
   const {distance} = checkStraightWallDistance()
-  if (distance >= MIN_DIST) {
+  if (distance > MIN_DIST) {
     prevTurn = undefined
-    const forwardMaxDistance = Math.floor((distance - MIN_DIST + 0.1)*100)
+    const forwardMaxDistance = Math.max(MIN_DIST-0.2, distance - 0.2) * 100//Math.floor((distance - MIN_DIST - 0.1)*100)
     console.log("moving forward: ", forwardMaxDistance - forwardMaxDistance % 10)
     await moveForward(forwardMaxDistance - forwardMaxDistance % 10)
     await measure()
