@@ -341,7 +341,6 @@ const checkStraightWallDistance = () => {
       }
       break
   }
-  console.log(distance, direction)
   return {
     distance: unitToMeter(distance * GRID_CELL_SIZE),
     direction,
