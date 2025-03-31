@@ -390,6 +390,7 @@ const randomTurn = async ()=>{
 }
 
 const decideNextMove = async () => {
+  if(isStopped.value) return
   const MIN_DIST = 0.5
   const {distance} = checkStraightWallDistance()
   if (distance > MIN_DIST) {
@@ -424,6 +425,6 @@ const start = async () => {
   await measure()
   await fetchData()
   await new Promise(r => setTimeout(r, 100))
-  if(!isStopped.value) await decideNextMove()
+  await decideNextMove()
 }
 </script>
