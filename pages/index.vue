@@ -4,7 +4,7 @@
       <color-mode-button></color-mode-button>
       <UButtonGroup>
         <UButton @click="start" :disabled="loadingAny">Start</UButton>
-<!--        <UButton color="error" @click="pause">Pause</UButton>-->
+        <UButton color="error" @click="stop">stop</UButton>
       </UButtonGroup>
     </nav>
     <UCard variant="subtle" class="flex">
@@ -155,7 +155,6 @@ const resetData = async() => {
   grid.value = generateGrid(inputWidth.value / GRID_CELL_SIZE, inputHeight.value / GRID_CELL_SIZE)
   roboterAngle.value = 90
   roboterPosition.value = generateRoboterPosition(inputWidth.value / GRID_CELL_SIZE, inputHeight.value / GRID_CELL_SIZE)
-  await $api('/clear')
 }
 
 const initializeTestData = () => {
@@ -409,16 +408,22 @@ const decideNextMove = async () => {
   await decideNextMove()
 }
 
+const isStopped = shallowRef(true)
+
+const stop = () => {
+  isStopped.value = true
+}
+
 const start = async () => {
   if (loadingAny.value) return
+  isStopped.value = false
   await measure()
   await turnRight()
-  await new Promise(r => setTimeout(r, 10))
+  await new Promise(r => setTimeout(r, 100))
   await turnRight()
   await measure()
   await fetchData()
-  await new Promise(r => setTimeout(r, 10))
-
-  await decideNextMove()
+  await new Promise(r => setTimeout(r, 100))
+  if(!isStopped.value) await decideNextMove()
 }
 </script>
