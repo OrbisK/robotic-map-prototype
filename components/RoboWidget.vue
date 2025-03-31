@@ -33,7 +33,7 @@ const roboterPosition = defineModel('roboterPosition', {
   default: {x: 0, y: 0},
 })
 
-function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngle = 15) {
+function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngle = 15, type = 'empty') {
   const targetAngle = (robotAngle + direction) % 360; // Kombiniere RobotAngle und Direction
   for (let y = 0; y < props.grid.length; y++) {
     for (let x = 0; x < props.grid[y].length; x++) {
@@ -53,7 +53,14 @@ function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngl
       const relativeAngle = (angleToCell - targetAngle + 360) % 360;
 
       if (relativeAngle <= arcAngle || relativeAngle >= 360 - arcAngle) {
-        props.grid[y][x].empty = true;
+        if(type === 'empty') {
+          props.grid[y][x].empty = true;
+          props.grid[y][x].wall = props.grid[y][x].wall === undefined ? 0 : props.grid[y][x].wall-1
+          props.grid[y][x].room = props.grid[y][x].room === undefined ? 1 : props.grid[y][x].room+1
+        }else if(type === 'wall') {
+          props.grid[y][x].wall = props.grid[y][x].wall === undefined ? 1 : props.grid[y][x].wall+1
+          props.grid[y][x].room = props.grid[y][x].room === undefined ? 0 : props.grid[y][x].room
+        }
       }
     }
   }
@@ -62,7 +69,8 @@ function markCellsInArc(robotPosition, robotAngle, direction, arcLength, arcAngl
 const applyInstruction = (instruction: Instruction) => {
   switch (instruction.type) {
     case 'measure':
-      markCellsInArc(roboterPosition.value, roboterAngle.value, instruction.payload.angle, meterToUnit(instruction.payload.distance / 100), 7)
+      markCellsInArc(roboterPosition.value, roboterAngle.value, instruction.payload.angle, meterToUnit(((instruction.payload.distance + 10) / 100)), 15, 'wall')
+      markCellsInArc(roboterPosition.value, roboterAngle.value, instruction.payload.angle, meterToUnit(instruction.payload.distance / 100), 15, 'empty')
       break
     case 'move':
       const units = meterToUnit(instruction.payload.distance / 100) / GRID_CELL_SIZE

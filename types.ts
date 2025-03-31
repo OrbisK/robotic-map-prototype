@@ -1,8 +1,9 @@
 export interface GridCell {
     x: number,
     y: number,
-    isDiscovered: boolean,
-    isEmpty: boolean,
+    empty: boolean,
+    wall: number
+    room: number
 }
 
 export interface BufferItem {

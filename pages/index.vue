@@ -49,11 +49,14 @@
         <UButton :disabled="loadingAny" color="info" :loading="isTurningLeft" @click="turnLeft">Left</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isTurningRight" @click="turnRight">Right</UButton>
         <UButton :disabled="loadingAny" color="info" :loading="isMeasuring" @click="measure">Measuring</UButton>
+        <UButton :disabled="loadingAny" color="info" @click="resetData">Reset</UButton>
         <UButton @click="decideNextMove">Next Move?</UButton>
       </UButtonGroup>
       <USeparator></USeparator>
       Pos: {{roboterPosition.x}} / {{roboterPosition.y}}<br>
       Angle: {{roboterAngle}}<br>
+      <USeparator></USeparator>
+      <USwitch v-model="mode"></USwitch>
     </UCard>
   </main>
 </template>
@@ -87,6 +90,10 @@ const generateGrid = (width, height) => {
   }
   return newGrid
 }
+
+const mode = shallowRef(false)
+
+provide('mode', mode)
 
 
 const inputWidthMeter = shallowRef(10)
@@ -141,6 +148,14 @@ const fetchData = async () => {
     if (dataMap.value.has(idx)) continue
     dataMap.value.set(idx, instr)
   }
+}
+
+const resetData = async() => {
+  dataMap.value.clear()
+  grid.value = generateGrid(inputWidth.value / GRID_CELL_SIZE, inputHeight.value / GRID_CELL_SIZE)
+  roboterAngle.value = 90
+  roboterPosition.value = generateRoboterPosition(inputWidth.value / GRID_CELL_SIZE, inputHeight.value / GRID_CELL_SIZE)
+  await $api('/clear')
 }
 
 const initializeTestData = () => {
@@ -299,7 +314,8 @@ const checkStraightWallDistance = () => {
       while (true) {
         const cluster = checkClusterTop(xClone, yClone)
         const wall = cluster.some((cell) => {
-          return !cell?.empty
+          if(!mode.value || cell.wall === undefined && cell.room === undefined) return !cell?.empty
+          return cell.wall / (cell.room ?? 1) > 0.5
         })
         console.log("top detection result: ", wall, distance)
         if (wall) break
@@ -311,7 +327,8 @@ const checkStraightWallDistance = () => {
     case "right":
       while (true) {
         const wall = checkClusterRight(xClone, yClone).some((cell) => {
-          return !cell?.empty
+          if(!mode.value || cell.wall === undefined && cell.room === undefined) return !cell?.empty
+          return cell.wall / (cell.room ?? 1) > 0.5
         })
         console.log("right detection result: ", wall, distance)
         if (wall) break
@@ -323,7 +340,8 @@ const checkStraightWallDistance = () => {
     case "bottom":
       while (true) {
         const wall = checkClusterBottom(xClone, yClone).some((cell) => {
-          return !cell?.empty
+          if(!mode.value || cell.wall === undefined && cell.room === undefined) return !cell?.empty
+          return cell.wall / (cell.room ?? 1) > 0.5
         })
         console.log("bottom, detection result: ", wall, distance)
         if (wall) break
@@ -335,7 +353,8 @@ const checkStraightWallDistance = () => {
     case "left":
       while (true) {
         const wall = checkClusterLeft(xClone, yClone).some((cell) => {
-          return !cell?.empty
+          if(!mode.value || cell.wall === undefined && cell.room === undefined) return !cell?.empty
+          return cell.wall / (cell.room ?? 1) > 0.5
         })
         console.log("left detection result: ", wall, distance)
         if (wall) break
@@ -398,6 +417,7 @@ const start = async () => {
   await turnRight()
   await measure()
   await fetchData()
+  await new Promise(r => setTimeout(r, 10))
 
   await decideNextMove()
 }

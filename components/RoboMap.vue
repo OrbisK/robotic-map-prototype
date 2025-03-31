@@ -15,6 +15,7 @@ const props = defineProps({
     type: Object as PropType<{ x: number, y: number }>,
   },
 })
+const mode = inject('mode')
 
 const p5Container = useTemplateRef('p5Container');
 
@@ -24,21 +25,35 @@ function setup({createCanvas, stroke, frameRate, background}: P5I) {
   frameRate(1)
 }
 
-function draw({background, rect, fill, stroke, push, pop, circle}: P5I) {
-  const renderCell = ({x, y, empty}) => {
-    if (!empty) {
-      return
-    }
+function draw({background, rect, fill, stroke, push, pop, circle, map}: P5I) {
+  const renderCell = ({x, y, empty, wall, room}) => {
     push()
-    fill(EMPTY_COLOR);
-    stroke(EMPTY_COLOR)
-    rect(x * GRID_CELL_SIZE, y * GRID_CELL_SIZE, GRID_CELL_SIZE, GRID_CELL_SIZE)
+    if(!mode.value) {
+      if (!empty) {
+        return
+      }
+      fill(EMPTY_COLOR);
+      stroke(EMPTY_COLOR)
+      rect(x * GRID_CELL_SIZE, y * GRID_CELL_SIZE, GRID_CELL_SIZE, GRID_CELL_SIZE)
+    }else {
+      if(wall === undefined && room === undefined){
+        fill(255,0,0)
+        stroke(255,0,0)
+        rect(x * GRID_CELL_SIZE, y * GRID_CELL_SIZE, GRID_CELL_SIZE, GRID_CELL_SIZE)
+      }
+      else {
+        const color = map(wall/(room??1), 0, 1, 255, 0)
+        fill(color)
+        stroke(color)
+        rect(x * GRID_CELL_SIZE, y * GRID_CELL_SIZE, GRID_CELL_SIZE, GRID_CELL_SIZE)
+      }
+    }
     pop()
   }
   const renderRobot = () => {
     push()
-    fill(255)
-    stroke(255)
+    fill(255, 255,0)
+    stroke(255 ,255,0 )
     circle(props.robotPosition.x * GRID_CELL_SIZE + GRID_CELL_SIZE * 0.5, props.robotPosition.y * GRID_CELL_SIZE + GRID_CELL_SIZE * 0.5, GRID_CELL_SIZE * 3, GRID_CELL_SIZE * 3)
     pop()
   }
