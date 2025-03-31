@@ -420,7 +420,7 @@ const start = async () => {
   isStopped.value = false
   await measure()
   await turnRight()
-  await new Promise(r => setTimeout(r, 100))
+  await new Promise(r => setTimeout(r, 600))
   await turnRight()
   await measure()
   await fetchData()
